@@ -21,15 +21,14 @@ public class BoxStackController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		
-	}
+     
+    }
 
 
     private void OnTriggerEnter(Collider other)
     {
-
-        if ((other.gameObject == stone1 || other.gameObject == stone2 ||
-            other.gameObject == stone3 || other.gameObject == stone4) && other.gameObject != player)
+        if (((other.gameObject == stone1 || other.gameObject == stone2 ||
+            other.gameObject == stone3 || other.gameObject == stone4) && other.gameObject != player) || WalkController.boxcnt >= 2)
         {
             rb.isKinematic = true;
         }
@@ -37,18 +36,20 @@ public class BoxStackController : MonoBehaviour {
         {
             rb.isKinematic = false;
         }
-
     }
 
     private void OnTriggerExit(Collider other)
     {
-
         if (other.gameObject == stone1 || other.gameObject == stone2 ||
             other.gameObject == stone3 || other.gameObject == stone4)
         {
             rb.isKinematic = false;
         }
-
+        if ((other.gameObject == stone1 || other.gameObject == stone2 ||
+            other.gameObject == stone3 || other.gameObject == stone4) && other.gameObject == player)
+        {
+            rb.isKinematic = false;
+        }
     }
 
 }

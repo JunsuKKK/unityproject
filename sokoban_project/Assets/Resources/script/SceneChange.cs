@@ -6,12 +6,15 @@ using UnityEngine.SceneManagement;
 public class SceneChange : MonoBehaviour {
     public static void Game_Over()
     {
-        SceneManager.LoadScene("game_over");
+        Fade.stage = -1;
+        Fade.flag = 2;
     }
-	public void SC_main_stage1()
+    public void SC_main_stage1()
     {
-        SceneManager.LoadScene("stage1_scene");
+        Fade.stage = 0;
+        Fade.flag = 2;
     }
+
     public static void SC_stage1_stage2()
     {
         SceneManager.LoadScene("stage2_scene");

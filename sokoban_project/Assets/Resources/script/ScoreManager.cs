@@ -5,7 +5,6 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour {
     public static int score;
     public static int maxscore;
-
     // Use this for initialization
     private void Awake()
     {
@@ -16,7 +15,8 @@ public class ScoreManager : MonoBehaviour {
     {
         if (score == 4)
         {
-            SceneChange.SC_stage1_stage2();
+            Fade.stage = 1;
+            Fade.flag = 2;
         }
     }
 }

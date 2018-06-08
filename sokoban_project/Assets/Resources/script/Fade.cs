@@ -1,0 +1,76 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+public class Fade : MonoBehaviour {
+    public float animTime = 2f;
+    private Image fadeImage;
+
+    private float start = 1f;
+    private float end = 0f;
+    private float time = 0f;
+
+    public static int flag = 0;//1=fadein 2=fadeout
+    public static int stage = -2; //0=main -1=gameover -2=default
+
+    private void Start()
+    {
+        fadeImage = GetComponent<Image>();
+    }
+
+    private void Update()
+    {
+        if (flag == 1)
+        {
+            PlayFadeIn();
+        }
+        else if (flag == 2)
+        {
+            PlayFadeOut();
+        }
+    }
+
+    public void PlayFadeIn()
+    {
+        time += Time.deltaTime / animTime;
+        Color color = fadeImage.color;
+        color.a = Mathf.Lerp(start, end, time);
+        fadeImage.color = color;
+        if (1.5 < time)
+        {
+            flag = 0;
+            time = 0f;
+        }
+    }
+    public void PlayFadeOut()
+    {
+        time += Time.deltaTime / animTime;
+        Color color = fadeImage.color;
+        color.a = Mathf.Lerp(end, start, time);
+        fadeImage.color = color;
+        if (stage == 0)
+        {
+            MainBtnFade.flag = true;
+        }
+        if (0.8 < time)
+        {
+            if (stage == -1)
+            {
+                flag = 0;
+                SceneManager.LoadScene("game_over");
+            }
+            else if (stage == 0)
+            {
+                flag = 0;
+                SceneManager.LoadScene("stage1_scene");
+            }
+            else if (stage == 1)
+            {
+                flag = 0;
+                SceneManager.LoadScene("stage2_scene");
+            }
+        }
+    }
+}

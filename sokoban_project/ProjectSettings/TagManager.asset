@@ -6,6 +6,7 @@ TagManager:
   tags:
   - beacon
   - stone
+  - sorting
   layers:
   - Default
   - TransparentFX

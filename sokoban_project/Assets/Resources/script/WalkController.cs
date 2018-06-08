@@ -7,6 +7,7 @@ public class WalkController : MonoBehaviour {
     Animator animator;
     GameObject stone1, stone2, stone3, stone4;
     int flag = 0;
+    public static int boxcnt = 0;
     public float speed = 1f;
     float horizontalMove;
     float verticalMove;
@@ -83,25 +84,56 @@ public class WalkController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject == stone1)
+        {
+            boxcnt++;
+        }
+        if (other.gameObject == stone2)
+        {
+            boxcnt++;
+        }
+        if (other.gameObject == stone3)
+        {
+            boxcnt++;
+        }
+        if (other.gameObject == stone4)
+        {
+            boxcnt++;
+        }
+
 
         if (other.gameObject == stone1 || other.gameObject == stone2 ||
             other.gameObject == stone3 || other.gameObject == stone4)
         {
             flag = 1;
         }
-        
-
+        Debug.Log(boxcnt);
     }
 
     private void OnTriggerExit(Collider other)
     {
-
+        if (other.gameObject == stone1)
+        {
+            boxcnt--;
+        }
+        if (other.gameObject == stone2)
+        {
+            boxcnt--;
+        }
+        if (other.gameObject == stone3)
+        {
+            boxcnt--;
+        }
+        if (other.gameObject == stone4)
+        {
+            boxcnt--;
+        }
         if (other.gameObject == stone1 || other.gameObject == stone2 ||
             other.gameObject == stone3 || other.gameObject == stone4)
         {
             flag = 0;
         }
-
+        Debug.Log(boxcnt);
     }
 
 
