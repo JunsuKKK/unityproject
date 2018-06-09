@@ -38,6 +38,7 @@ public class Fade : MonoBehaviour {
         Color color = fadeImage.color;
         color.a = Mathf.Lerp(start, end, time);
         fadeImage.color = color;
+        MainBtnFade.flag = false;
         if (1.5 < time)
         {
             flag = 0;
@@ -50,26 +51,31 @@ public class Fade : MonoBehaviour {
         Color color = fadeImage.color;
         color.a = Mathf.Lerp(end, start, time);
         fadeImage.color = color;
-        if (stage == 0)
-        {
-            MainBtnFade.flag = true;
-        }
+        MainBtnFade.flag = true;
         if (0.8 < time)
         {
-            if (stage == -1)
+            switch (stage)
             {
-                flag = 0;
-                SceneManager.LoadScene("game_over");
-            }
-            else if (stage == 0)
-            {
-                flag = 0;
-                SceneManager.LoadScene("stage1_scene");
-            }
-            else if (stage == 1)
-            {
-                flag = 0;
-                SceneManager.LoadScene("stage2_scene");
+                case -1:
+                    flag = 0;
+                    SceneManager.LoadScene("game_over");
+                    break;
+                case 1:
+                    flag = 0;
+                    SceneManager.LoadScene("stage1_scene");
+                    break;
+                case 2:
+                    flag = 0;
+                    SceneManager.LoadScene("stage2_scene");
+                    break;
+                case 3:
+                    flag = 0;
+                    SceneManager.LoadScene("stage3_scene");
+                    break;
+                case 4:
+                    flag = 0;
+                    SceneManager.LoadScene("clear");
+                    break;
             }
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CountController : MonoBehaviour {
 
@@ -10,7 +11,13 @@ public class CountController : MonoBehaviour {
     public string result;
     private void Start()
     {
-        timeCoast = 32;
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "stage1_scene": timeCoast = 31; break;
+            case "stage2_scene": timeCoast = 121; break;
+            case "stage3_scene": timeCoast = 201; break;
+            default: break;
+        }
     }
     // Update is called once per frame
     void Update () {
@@ -19,7 +26,8 @@ public class CountController : MonoBehaviour {
 
         if (timeCoast <= 0)
         {
-            SceneChange.Game_Over();
+            Fade.stage = -1;
+            Fade.flag = 2;
         }
         else
         {

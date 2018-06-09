@@ -7,49 +7,36 @@ public class BoxStackController : MonoBehaviour {
     // Use this for initialization
     public Rigidbody rb;
     public Collider myStone;
-        
+    bool isk=false;        
         void Start()
     {
         rb = GetComponent<Rigidbody>();
-        myStone = GetComponent<Collider>();
-        stone1 = GameObject.Find("stone_collider1");
-        stone2 = GameObject.Find("stone_collider2");
-        stone3 = GameObject.Find("stone_collider3");
-        stone4 = GameObject.Find("stone_collider4");
         player = GameObject.Find("Character_Male");
     }
 
     // Update is called once per frame
     void Update () {
-     
+        if (isk && WalkController.boxcnt<2)
+        {
+            rb.isKinematic = false;
+        }
+        else if(!isk && WalkController.boxcnt==0)
+        {
+            rb.isKinematic = true;
+        }
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if (((other.gameObject == stone1 || other.gameObject == stone2 ||
-            other.gameObject == stone3 || other.gameObject == stone4) && other.gameObject != player) || WalkController.boxcnt >= 2)
-        {
-            rb.isKinematic = true;
-        }
-        else
-        {
-            rb.isKinematic = false;
+        if (other.gameObject == player){
+            isk = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == stone1 || other.gameObject == stone2 ||
-            other.gameObject == stone3 || other.gameObject == stone4)
-        {
-            rb.isKinematic = false;
-        }
-        if ((other.gameObject == stone1 || other.gameObject == stone2 ||
-            other.gameObject == stone3 || other.gameObject == stone4) && other.gameObject == player)
-        {
-            rb.isKinematic = false;
-        }
+        isk = false;
     }
 
 }

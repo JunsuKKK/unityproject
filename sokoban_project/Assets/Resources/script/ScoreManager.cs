@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour {
     public static int score;
@@ -15,8 +16,7 @@ public class ScoreManager : MonoBehaviour {
     {
         if (score == 4)
         {
-            Fade.stage = 1;
-            Fade.flag = 2;
+            SceneChange.StageStatic();
         }
     }
 }

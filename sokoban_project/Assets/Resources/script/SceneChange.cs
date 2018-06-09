@@ -4,19 +4,52 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour {
-    public static void Game_Over()
-    {
-        Fade.stage = -1;
-        Fade.flag = 2;
-    }
     public void SC_main_stage1()
     {
-        Fade.stage = 0;
+        Fade.stage = 1;
         Fade.flag = 2;
     }
 
-    public static void SC_stage1_stage2()
+    public void StageBtn()
     {
-        SceneManager.LoadScene("stage2_scene");
+        switch (ReturnStage.stage)
+        {
+            case 1:
+                Fade.stage = 1;
+                Fade.flag = 2;
+                break;
+            case 2:
+                Fade.stage = 2;
+                Fade.flag = 2;
+                break;
+            case 3:
+                Fade.stage = 3;
+                Fade.flag = 2;
+                break;
+            default:
+                break;
+
+        }
+    }
+    public static void StageStatic()
+    {
+        switch (ReturnStage.stage)
+        {
+            case 1:
+                Fade.stage = 1 + 1;
+                Fade.flag = 2;
+                break;
+            case 2:
+                Fade.stage = 2 + 1;
+                Fade.flag = 2;
+                break;
+            case 3:
+                Fade.stage = 3 + 1;
+                Fade.flag = 2;
+                break;
+            default:
+                break;
+
+        }
     }
 }

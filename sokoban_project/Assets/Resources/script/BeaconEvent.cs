@@ -5,9 +5,7 @@ using UnityEngine;
 public class BeaconEvent : MonoBehaviour {
     GameObject stone1, stone2, stone3, stone4;
     void Awake()
-    {
-        Debug.Log("start");
-           
+    {      
         stone1 = GameObject.Find("stone1");
         stone2 = GameObject.Find("stone2");
         stone3 = GameObject.Find("stone3");

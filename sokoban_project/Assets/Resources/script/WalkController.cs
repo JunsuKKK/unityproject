@@ -13,7 +13,7 @@ public class WalkController : MonoBehaviour {
     float verticalMove;
     Vector3 movement;
     bool isPress=false;
-    bool isPlay = false;
+    public bool isPlay = false;
 
     void Start()
     {
@@ -107,7 +107,6 @@ public class WalkController : MonoBehaviour {
         {
             flag = 1;
         }
-        Debug.Log(boxcnt);
     }
 
     private void OnTriggerExit(Collider other)
@@ -133,7 +132,6 @@ public class WalkController : MonoBehaviour {
         {
             flag = 0;
         }
-        Debug.Log(boxcnt);
     }
 
 

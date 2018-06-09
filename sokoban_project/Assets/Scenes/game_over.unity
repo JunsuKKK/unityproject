@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -464,7 +464,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 2082569970}
+  - {fileID: 1843761658}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -576,7 +576,7 @@ GameObject:
   - component: {fileID: 1843761659}
   - component: {fileID: 1843761661}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -590,15 +590,16 @@ RectTransform:
   m_GameObject: {fileID: 1843761657}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2082569970}
-  m_RootOrder: 1
+  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_Children:
+  - {fileID: 2082569970}
+  m_Father: {fileID: 1146524898}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.5, y: 50}
-  m_SizeDelta: {x: 700, y: 437}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 59, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1843761659
 MonoBehaviour:
@@ -751,6 +752,7 @@ GameObject:
   - component: {fileID: 2082569973}
   - component: {fileID: 2082569972}
   - component: {fileID: 2082569974}
+  - component: {fileID: 2082569975}
   - component: {fileID: 2082569971}
   m_Layer: 5
   m_Name: Button
@@ -765,18 +767,17 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2082569969}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 445913380}
-  - {fileID: 1843761658}
-  m_Father: {fileID: 1146524898}
+  m_Father: {fileID: 1843761658}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3, y: -100}
+  m_AnchoredPosition: {x: 1.5, y: -50}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2082569971
@@ -819,7 +820,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2082569974}
-        m_MethodName: SC_main_stage1
+        m_MethodName: StageBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -875,3 +876,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3a3ee3e7a9efb4aaff6fd98f7033cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2082569975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2082569969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc4b2b5f9ec03a45ba6cebcd3ff9b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animTime: 2
